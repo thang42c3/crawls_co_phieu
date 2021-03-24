@@ -72,6 +72,6 @@ class CpSpider(scrapy.Spider):
             write.writerows(rows)
 
 
-cmdline.execute("scrapy runspider model/Model_NV_so_1.py".split())
+
 
 
