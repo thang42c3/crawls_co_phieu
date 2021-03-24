@@ -70,6 +70,8 @@ class CpSpider(scrapy.Spider):
         with open(r'.\file_csv\lich_su_gia_co_phieu.csv', 'a') as f:
             write = csv.writer(f)
             write.writerows(rows)
+      
+cmdline.execute("scrapy runspider model/Model_NV_so_1.py".split())
 
 
 
