@@ -18,7 +18,6 @@ def upload_form():
 @app.route('/download_lsgcp', methods = ['GET', 'POST'])
 def lich_su_gia_co_phieu():
     run_NV_1()
-    time.sleep(80)
     path = r".\file_csv\lich_su_gia_co_phieu.csv"
     return send_file(path, as_attachment=True, cache_timeout=0)
 
