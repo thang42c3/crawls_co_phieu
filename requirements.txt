@@ -37,7 +37,6 @@ six
 subprocess.run
 time-adapters
 Twisted
-twisted-iocpsupport
 urllib3
 w3lib
 Werkzeug
