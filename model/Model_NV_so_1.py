@@ -73,7 +73,8 @@ class CpSpider(scrapy.Spider):
       
 cmdline.execute("scrapy runspider model/Model_NV_so_1.py".split())
 
-
+def run_NV_1():
+    Popen('python Model_NV_so_1.py')
 
 
 
