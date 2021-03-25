@@ -3,6 +3,8 @@ import scrapy
 from scrapy import cmdline
 import csv
 import os
+from subprocess import Popen
+
 
 # NHIỆM VỤ SỐ 1
 if os.path.exists(r".\file_csv\lich_su_gia_co_phieu.csv"):
@@ -72,6 +74,9 @@ class CpSpider(scrapy.Spider):
             write.writerows(rows)
       
 cmdline.execute("scrapy runspider model/Model_NV_so_1.py".split())
+
+def run_NV_1():
+    Popen('python model/Model_NV_so_1.py')
 
 
 
