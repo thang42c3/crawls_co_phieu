@@ -56,17 +56,7 @@ class CpSpider(scrapy.Spider):
             ]
                 if record[0] is not None:
                     rows.append(record)
-        Page = response.xpath("//ul[@id='navigator']/li[9]/a[1]/@href").get()
-        if Page is not None:
-            next_page = response.xpath("//ul[@id='navigator']/li[9]/a[1]/@href").get()
-        elif response.xpath("//ul[@id='navigator']/li[6]/span[1]/text()").get() == "70":
-            next_page = response.xpath("//ul[@id='navigator']/li[7]/a[1]/@href").get()
-        elif response.xpath("//ul[@id='navigator']/li[7]/span[1]/text()").get() == "71":
-            next_page = None
-        else:
-            next_page = response.xpath("//ul[@id='navigator']/li[6]/a[1]/@href").get()
-        if next_page is not None:
-            yield response.follow(next_page, self.parse)
+        
 
 
         with open(r'.\file_csv\lich_su_gia_co_phieu.csv', 'a') as f:
