@@ -2,14 +2,11 @@ from app import app
 from flask import Flask, send_file, render_template
 from scrapy import cmdline
 from subprocess import Popen
+from model.Model_NV_so_1 import run_NV_1
 from model.Model_NV_so_2 import kinh_doanh_theo_quy, kinh_doanh_theo_nam, can_doi_kt_theo_quy, can_doi_kt_theo_nam, lc_theo_quy, lc_theo_nam
 from model.Model_NV_so_3 import lich_chia_co_tuc
 from model.Model_NV_so_4 import tai_san, nguon_von, tien_mat_tren_co_phieu, ket_qua_kinh_doanh_quy, co_cau_loi_nhuan, cpqh_qldn_dt, pe_eps, roa_roe
 import time
-
-def run_NV_1():
-    path = r".model\Model_NV_so_1.py"
-    Popen('python {0}'.format(path))
 
 
 @app.route('/')
