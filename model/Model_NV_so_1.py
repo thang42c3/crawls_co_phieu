@@ -63,7 +63,7 @@ class CpSpider(scrapy.Spider):
             write = csv.writer(f)
             write.writerows(rows)
       
-cmdline.execute("scrapy runspider model/Model_NV_so_1.py".split())
+cmdline.execute("scrapy runspider model\Model_NV_so_1.py".split())
 
 
 
