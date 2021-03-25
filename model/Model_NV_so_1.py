@@ -38,7 +38,7 @@ class CpSpider(scrapy.Spider):
         rows = []
         rows.append(fields)
         for table in response.css('table.stock'):
-            for j in range (2, 10):
+            for j in range (2, 3):
                 record = [ table.xpath('tr[{0}]/td[1]/text()'.format(j)).get(),
                     'PAN',
                     table.xpath('tr[{0}]/td[2]/text()'.format(j)).get(),
