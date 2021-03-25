@@ -8,7 +8,8 @@ from model.Model_NV_so_4 import tai_san, nguon_von, tien_mat_tren_co_phieu, ket_
 import time
 
 def run_NV_1():
-    Popen('python model\Model_NV_so_1.py')
+    path = r".model\Model_NV_so_1.py"
+    Popen('python {0}'.format(path))
 
 
 @app.route('/')
