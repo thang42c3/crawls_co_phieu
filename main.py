@@ -2,7 +2,7 @@ from app import app
 from flask import Flask, send_file, render_template
 from scrapy import cmdline
 from subprocess import Popen
-from model.Model_NV_so_1 import run_NV_1
+from model.Model_NV_so_1 import lich_su_gia_co_phieu
 from model.Model_NV_so_2 import kinh_doanh_theo_quy, kinh_doanh_theo_nam, can_doi_kt_theo_quy, can_doi_kt_theo_nam, lc_theo_quy, lc_theo_nam
 from model.Model_NV_so_3 import lich_chia_co_tuc
 from model.Model_NV_so_4 import tai_san, nguon_von, tien_mat_tren_co_phieu, ket_qua_kinh_doanh_quy, co_cau_loi_nhuan, cpqh_qldn_dt, pe_eps, roa_roe
@@ -15,10 +15,9 @@ def upload_form():
 
 
 @app.route('/download_lsgcp', methods = ['GET', 'POST'])
-def lich_su_gia_co_phieu():
-    run_NV_1()
-    path = r".\file_csv\lich_su_gia_co_phieu.csv"
-    return send_file(path, as_attachment=True, cache_timeout=0)
+def lich_su_gia_co_phieu_1():
+    lich_su_gia_co_phieu()
+    return render_template('index.html')
 
 # NHIÊM VỤ 2
 
