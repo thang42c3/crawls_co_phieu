@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 import time
 
-def NV1_run():
+def lich_su_gia_co_phieu():
   driver = webdriver.Chrome()
   driver.get("https://www.cophieu68.vn/historyprice.php?id=pan#")
   element = driver.find_element_by_link_text("Đăng nhập")
