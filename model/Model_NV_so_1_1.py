@@ -47,18 +47,18 @@ def lich_su_gia_co_phieu():
             continue
         rows.append(lis)
 
-    with open(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv', 'a') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu_bo_sung.csv", 'a') as f:
         write = csv.writer(f)
         write.writerows(rows)
 
 
-    with open(r'.\file_csv\lich_su_gia_co_phieu.csv', newline='') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu.csv", newline='') as f:
         reader = csv.reader(f)
         data1 = list(reader)
 
     f.close()
 
-    with open(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv', newline='') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu_bo_sung.csv", newline='') as f:
         reader = csv.reader(f)
         data2 = list(reader)
 
@@ -87,9 +87,9 @@ def lich_su_gia_co_phieu():
         data1[i][0] = '#{0}'.format(i)
     print(data1)
 
-    if os.path.exists(r'.\file_csv\lich_su_gia_co_phieu.csv'):
-        os.remove(r'.\file_csv\lich_su_gia_co_phieu.csv')
+    if os.path.exists(r".\file_csv\lich_su_gia_co_phieu.csv"):
+        os.remove(r".\file_csv\lich_su_gia_co_phieu.csv")
 
-    with open(r'.\file_csv\lich_su_gia_co_phieu.csv', 'a') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu.csv", 'a') as f:
         write = csv.writer(f)
         write.writerows(data1)
