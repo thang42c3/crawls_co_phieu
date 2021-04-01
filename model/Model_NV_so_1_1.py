@@ -35,17 +35,17 @@ def lich_su_gia_co_phieu():
     rows = []
     for link in links:
         tds = link.find_all('td')
-        list = []
+        lis = []
         if len(tds) > 3:
             for i in range(0,13):
                 if i == 0:
-                    list.append(tds[i].text.strip("\n"))
-                    list.append('PAN')
+                    lis.append(tds[i].text.strip("\n"))
+                    lis.append('PAN')
                 else:
-                    list.append(tds[i].text.strip("\n"))
+                    lis.append(tds[i].text.strip("\n"))
         else:
             continue
-        rows.append(list)
+        rows.append(lis)
 
     with open(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv', 'a') as f:
         write = csv.writer(f)
