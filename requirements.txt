@@ -33,6 +33,8 @@ queuelib
 requests
 Scrapy
 service-identity
+beautifulsoup4
+requests
 six
 selenium
 subprocess.run
