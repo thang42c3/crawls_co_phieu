@@ -17,7 +17,8 @@ def upload_form():
 @app.route('/download_lsgcp', methods = ['GET', 'POST'])
 def lich_su_gia_co_phieu_1():
     lich_su_gia_co_phieu()
-    return render_template('index.html')
+    path = r".\file_csv\lich_su_gia_co_phieu.csv"
+    return send_file(path, as_attachment=True, cache_timeout=0)
 
 # NHIÊM VỤ 2
 
