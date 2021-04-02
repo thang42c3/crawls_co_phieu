@@ -8,8 +8,8 @@ from subprocess import Popen
 import logging
 
 def lich_su_gia_co_phieu():
-    if os.path.exists(r'./file_csv/lich_su_gia_co_phieu_bo_sung.csv'):
-        os.remove(r'./file_csv/lich_su_gia_co_phieu_bo_sung.csv')
+    if os.path.exists(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv'):
+        os.remove(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv')
     fields = ['STT',
               'Ma_cty',
               'Ngay',
@@ -24,7 +24,7 @@ def lich_su_gia_co_phieu():
               'Giao_dich_thoa_thuan',
               'Nuoc_ngoai_mua',
               'Nuoc_ngoai_ban']
-    with open(r'./file_csv/lich_su_gia_co_phieu_bo_sung.csv', 'a') as f:
+    with open(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv', 'a') as f:
         write = csv.writer(f)
         write.writerow(fields)
 
@@ -47,7 +47,7 @@ def lich_su_gia_co_phieu():
             continue
         rows.append(lis)
 
-    with open(r"./file_csv/lich_su_gia_co_phieu_bo_sung.csv", 'a') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu_bo_sung.csv", 'a') as f:
         write = csv.writer(f)
         write.writerows(rows)
 
@@ -87,9 +87,9 @@ def lich_su_gia_co_phieu():
         data1[i][0] = '#{0}'.format(i)
     print(data1)
 
-    if os.path.exists(r"./file_csv/lich_su_gia_co_phieu.csv"):
-        os.remove(r"./file_csv/lich_su_gia_co_phieu.csv")
+    if os.path.exists(r".\file_csv\lich_su_gia_co_phieu.csv"):
+        os.remove(r".\file_csv\lich_su_gia_co_phieu.csv")
 
-    with open(r"./file_csv/lich_su_gia_co_phieu.csv", 'a') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu.csv", 'a') as f:
         write = csv.writer(f)
         write.writerows(data1)
