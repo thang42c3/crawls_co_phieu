@@ -31,7 +31,7 @@ def lich_su_gia_co_phieu():
     req = requests.get('https://www.cophieu68.vn/historyprice.php?currentPage=1&id=pan', verify=False)
     soup = BeautifulSoup(req.text, 'html.parser')
     logging.info("OK")
-    links = soup.find_all('tr')[7:]
+    links = soup.find_all('tr')[6:]
     rows = []
     for link in links:
         tds = link.find_all('td')
