@@ -58,7 +58,7 @@ def lich_su_gia_co_phieu():
 
     f.close()
 
-    with open(r"./file_csv/lich_su_gia_co_phieu_bo_sung.csv", newline='') as f:
+    with open(r".\file_csv\lich_su_gia_co_phieu_bo_sung.csv", newline='') as f:
         reader = csv.reader(f)
         data2 = list(reader)
 
