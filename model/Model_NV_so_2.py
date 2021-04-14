@@ -3,11 +3,16 @@ import requests
 import json
 import csv
 import os
+from config import config
+from model.ghi_file import ghi_file
+
+config = config()
 
 
 # Crawl bảng kết quả kinh doanh theo quý
 def kinh_doanh_theo_quy():
-    url = "https://api-t19.24hmoney.vn/v1/ios/report/statement/VNM/finance?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&period=2&view=2&page=1&expanded=true"
+    url = config["url"]['kinh_doanh_theo_quy']
+    url_csv_file = config["file_csv_url"]["kinh_doanh_theo_quy"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
@@ -33,19 +38,13 @@ def kinh_doanh_theo_quy():
         row = row + value
         rows.append(row)
 
-
-
-    if os.path.exists(r".\file_csv\kinh_doanh_theo_quy.csv"):
-        os.remove(r".\file_csv\kinh_doanh_theo_quy.csv")
-
-    with open(r'.\file_csv\kinh_doanh_theo_quy.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
+    ghi_file(url_csv_file, rows)
 
 # Crawl bảng kết quả kinh doanh theo năm
 
 def kinh_doanh_theo_nam():
-    url = "https://api-t19.24hmoney.vn/v1/ios/report/statement/VNM/finance?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&period=1&view=2&page=1&expanded=true"
+    url = config["url"]['kinh_doanh_theo_nam']
+    url_csv_file = config["file_csv_url"]["kinh_doanh_theo_nam"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
@@ -69,21 +68,14 @@ def kinh_doanh_theo_nam():
         row = row + value
         rows.append(row)
 
-
-
-
-    if os.path.exists(r".\file_csv\kinh_doanh_theo_nam.csv"):
-        os.remove(r".\file_csv\kinh_doanh_theo_nam.csv")
-
-    with open(r'.\file_csv\kinh_doanh_theo_nam.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
+    ghi_file(url_csv_file, rows)
 
 
 # Crawl bảng can doi kinh phi theo quý
 
 def can_doi_kt_theo_quy():
-    url = "https://api-t19.24hmoney.vn/v1/ios/report/statement/VNM/finance?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&period=2&view=1&page=1&expanded=true"
+    url = config["url"]['can_doi_kt_theo_quy']
+    url_csv_file = config["file_csv_url"]["can_doi_kt_theo_quy"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
@@ -108,17 +100,14 @@ def can_doi_kt_theo_quy():
         row = row + value
         rows.append(row)
 
-    if os.path.exists(r".\file_csv\can_doi_kt_theo_quy.csv"):
-        os.remove(r".\file_csv\can_doi_kt_theo_quy.csv")
+    ghi_file(url_csv_file, rows)
 
-    with open(r'.\file_csv\can_doi_kt_theo_quy.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
 
 # Crawl bảng can doi kinh phi theo năm
 
 def can_doi_kt_theo_nam():
-    url = "https://api-t19.24hmoney.vn/v1/ios/report/statement/VNM/finance?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&period=1&view=1&page=1&expanded=true"
+    url = config["url"]['can_doi_kt_theo_nam']
+    url_csv_file = config["file_csv_url"]["can_doi_kt_theo_nam"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
@@ -143,17 +132,13 @@ def can_doi_kt_theo_nam():
         row = row + value
         rows.append(row)
 
-    if os.path.exists(r".\file_csv\can_doi_kt_theo_nam.csv"):
-        os.remove(r".\file_csv\can_doi_kt_theo_nam.csv")
-
-    with open(r'.\file_csv\can_doi_kt_theo_nam.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
+    ghi_file(url_csv_file, rows)
 
 
 # Crawl bảng LC tài chính theo quý
 def lc_theo_quy():
-    url = "https://api-t19.24hmoney.vn/v1/ios/report/statement/VNM/finance?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&period=2&view=3&page=1&expanded=true"
+    url = config["url"]['lc_theo_quy']
+    url_csv_file = config["file_csv_url"]["lc_theo_quy"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
@@ -177,19 +162,14 @@ def lc_theo_quy():
         row.append(Colum1)
         row = row + value
         rows.append(row)
+    ghi_file(url_csv_file, rows)
 
-
-    if os.path.exists(r".\file_csv\lc_theo_quy.csv"):
-        os.remove(r".\file_csv\lc_theo_quy.csv")
-
-    with open(r'.\file_csv\lc_theo_quy.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
 
 # Crawl bảng LC tài chính theo năm
 
 def lc_theo_nam():
-    url = "https://api-t19.24hmoney.vn/v1/ios/report/statement/VNM/finance?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&period=1&view=3&page=1&expanded=true"
+    url = config["url"]['lc_theo_nam']
+    url_csv_file = config["file_csv_url"]["lc_theo_nam"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
@@ -213,10 +193,4 @@ def lc_theo_nam():
         row.append(Colum1)
         row = row + value
         rows.append(row)
-
-    if os.path.exists(r".\file_csv\lc_theo_nam.csv"):
-        os.remove(r".\file_csv\lc_theo_nam.csv")
-
-    with open(r'.\file_csv\lc_theo_nam.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
+    ghi_file(url_csv_file, rows)

@@ -6,10 +6,20 @@ import csv
 import os
 from subprocess import Popen
 import logging
+from config import config
+import json
+from model.ghi_file import ghi_file
+
+config = config()
+logging.warning(config["url"]['lich_su_gia_co_phieu'])
+logging.warning(config["url"]['tai_san'])
+logging.warning(config["file_csv_url"]["lich_su_gia_co_phieu_bo_sung"])
 
 def lich_su_gia_co_phieu():
-    if os.path.exists(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv'):
-        os.remove(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv')
+    url_csv_file_bs = config["file_csv_url"]["lich_su_gia_co_phieu_bo_sung"]
+    url_csv_file = config["file_csv_url"]["lich_su_gia_co_phieu"]
+    if os.path.exists(r'{0}'.format(url_csv_file_bs)):
+        os.remove(r'{0}'.format(url_csv_file_bs))
     fields = ['STT',
               'Ma_cty',
               'Ngay',
@@ -24,13 +34,12 @@ def lich_su_gia_co_phieu():
               'Giao_dich_thoa_thuan',
               'Nuoc_ngoai_mua',
               'Nuoc_ngoai_ban']
-    with open(r'.\file_csv\lich_su_gia_co_phieu_bo_sung.csv', 'a') as f:
+    with open(r'{0}'.format(url_csv_file_bs), 'a') as f:
         write = csv.writer(f)
         write.writerow(fields)
 
-    req = requests.get('https://www.cophieu68.vn/historyprice.php?currentPage=1&id=pan', verify=False)
+    req = requests.get(config["url"]['lich_su_gia_co_phieu'], verify=False)
     soup = BeautifulSoup(req.text, 'html.parser')
-    logging.info("OK")
     links = soup.find_all('tr')[6:]
     rows = []
     for link in links:
@@ -46,19 +55,19 @@ def lich_su_gia_co_phieu():
         else:
             continue
         rows.append(lis)
-
-    with open(r".\file_csv\lich_su_gia_co_phieu_bo_sung.csv", 'a') as f:
+    logging.warning(rows)
+    with open(r'{0}'.format(url_csv_file_bs), 'a') as f:
         write = csv.writer(f)
         write.writerows(rows)
 
 
-    with open(r"./file_csv/lich_su_gia_co_phieu.csv", newline='') as f:
+    with open(r'{0}'.format(url_csv_file), newline='') as f:
         reader = csv.reader(f)
         data1 = list(reader)
 
     f.close()
 
-    with open(r".\file_csv\lich_su_gia_co_phieu_bo_sung.csv", newline='') as f:
+    with open(r'{0}'.format(url_csv_file_bs), newline='') as f:
         reader = csv.reader(f)
         data2 = list(reader)
 
@@ -85,11 +94,6 @@ def lich_su_gia_co_phieu():
 
     for i in range(1, len(data1)):
         data1[i][0] = '#{0}'.format(i)
-    print(data1)
 
-    if os.path.exists(r".\file_csv\lich_su_gia_co_phieu.csv"):
-        os.remove(r".\file_csv\lich_su_gia_co_phieu.csv")
+    ghi_file(url_csv_file, data1)
 
-    with open(r".\file_csv\lich_su_gia_co_phieu.csv", 'a') as f:
-        write = csv.writer(f)
-        write.writerows(data1)

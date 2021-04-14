@@ -3,17 +3,18 @@ import requests
 import json
 import csv
 import os
+from model.ghi_file import ghi_file
+from config import config
+config = config()
 
 # Crawl bảng lịch chia cổ tức VNM
 
 def lich_chia_co_tuc():
-    url = "https://api-finance-t19.24hmoney.vn/v1/ios/company/dividend-schedule?device_id=web&device_name=INVALID&device_model=Windows+10&network_carrier=INVALID&connection_type=INVALID&os=Chrome&os_version=89.0.4389.90&app_version=INVALID&access_token=INVALID&push_token=INVALID&locale=vi&symbol=VNM"
+    url = config["url"]['lich_chia_co_tuc']
+    url_csv_file = config["file_csv_url"]["lich_chia_co_tuc"]
     proxies = {}
     response = requests.get(url = url, proxies=proxies)
     data = json.loads(response.content)
-
-    if os.path.exists(r'.\file_csv\lich_chia_co_tuc.csv'):
-        os.remove(r'.\file_csv\lich_chia_co_tuc.csv')
     rows = []
     rows.append(['Thời gian', 'Thông tin'])
 
@@ -29,9 +30,5 @@ def lich_chia_co_tuc():
             text = "Phát hành thêm cổ phiếu, tỷ lệ: 1 : {0}".format(ratio)
 
         rows.append([thoi_gian, text])
+    ghi_file(url_csv_file, rows)
 
-    with open(r'.\file_csv\lich_chia_co_tuc.csv', 'a', encoding='utf-8') as f:
-        write = csv.writer(f)
-        write.writerows(rows)
-
-lich_chia_co_tuc()

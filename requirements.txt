@@ -35,6 +35,7 @@ Scrapy
 service-identity
 beautifulsoup4
 requests
+yml
 six
 selenium
 subprocess.run
