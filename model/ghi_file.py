@@ -3,7 +3,7 @@ import requests
 import json
 import csv
 import os
-from config import config
+from Config import config
 config = config()
 
 def ghi_file(url_csv_file, rows):

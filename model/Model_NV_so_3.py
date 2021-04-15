@@ -4,7 +4,7 @@ import json
 import csv
 import os
 from model.ghi_file import ghi_file
-from config import config
+from Config import config
 config = config()
 
 # Crawl bảng lịch chia cổ tức VNM

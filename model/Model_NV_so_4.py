@@ -5,7 +5,7 @@ from scrapy import cmdline
 import csv
 import os
 from model.ghi_file import ghi_file
-from config import config
+from Config import config
 config = config()
 
 

@@ -3,7 +3,7 @@ import requests
 import json
 import csv
 import os
-from config import config
+from Config import config
 from model.ghi_file import ghi_file
 
 config = config()
