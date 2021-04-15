@@ -3,8 +3,6 @@ import requests
 import json
 import csv
 import os
-from Config import config
-config = config()
 
 def ghi_file(url_csv_file, rows):
     if os.path.exists(r'{0}'.format(url_csv_file)):

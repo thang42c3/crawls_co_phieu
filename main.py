@@ -7,6 +7,8 @@ from model.Model_NV_so_2 import kinh_doanh_theo_quy, kinh_doanh_theo_nam, can_do
 from model.Model_NV_so_3 import lich_chia_co_tuc
 from model.Model_NV_so_4 import tai_san, nguon_von, tien_mat_tren_co_phieu, ket_qua_kinh_doanh_quy, co_cau_loi_nhuan, cpqh_qldn_dt, pe_eps, roa_roe
 import time
+from config import config
+config = config()
 
 
 @app.route('/')
@@ -16,33 +18,33 @@ def upload_form():
 
 @app.route('/download_lsgcp', methods = ['GET', 'POST'])
 def lich_su_gia_co_phieu_1():
-    lich_su_gia_co_phieu()
-    path = r".\file_csv\lich_su_gia_co_phieu.csv"
+    url_file = lich_su_gia_co_phieu()
+    path = r"{0}".format(url_file)
     return send_file(path, as_attachment=True, cache_timeout=0)
 
 # NHIÊM VỤ 2
 
 @app.route('/download_kqkdtq', methods = ['GET', 'POST'])
 def kinh_doanh_theo_quy_route():
-    kinh_doanh_theo_quy()
+    url_file = kinh_doanh_theo_quy()
     path = r".\file_csv\kinh_doanh_theo_quy.csv"
     return send_file(path, as_attachment=True, cache_timeout=0)
 
 @app.route('/download_kqkdtn', methods = ['GET', 'POST'])
 def kinh_doanh_theo_nam_route():
-    kinh_doanh_theo_nam()
+    url_file = kinh_doanh_theo_nam()
     path = r".\file_csv\kinh_doanh_theo_nam.csv"
     return send_file(path, as_attachment=True, cache_timeout=0)
 
 @app.route('/download_cdkttq', methods = ['GET', 'POST'])
 def can_doi_kt_theo_quy_route():
-    can_doi_kt_theo_quy()
+    url_file = can_doi_kt_theo_quy()
     path = r".\file_csv\can_doi_kt_theo_quy.csv"
     return send_file(path, as_attachment=True, cache_timeout=0)
 
 @app.route('/download_cdkttn', methods = ['GET', 'POST'])
 def can_doi_kt_theo_nam_route():
-    can_doi_kt_theo_nam()
+    url_file = can_doi_kt_theo_nam()
     path = r".\file_csv\can_doi_kt_theo_nam.csv"
     return send_file(path, as_attachment=True, cache_timeout=0)
 

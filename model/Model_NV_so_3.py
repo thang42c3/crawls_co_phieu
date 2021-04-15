@@ -4,7 +4,7 @@ import json
 import csv
 import os
 from model.ghi_file import ghi_file
-from Config import config
+from config import config
 config = config()
 
 # Crawl bảng lịch chia cổ tức VNM
@@ -31,4 +31,5 @@ def lich_chia_co_tuc():
 
         rows.append([thoi_gian, text])
     ghi_file(url_csv_file, rows)
+    return url_csv_file
 

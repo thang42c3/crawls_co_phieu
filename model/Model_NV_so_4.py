@@ -5,7 +5,7 @@ from scrapy import cmdline
 import csv
 import os
 from model.ghi_file import ghi_file
-from Config import config
+from config import config
 config = config()
 
 
@@ -32,7 +32,8 @@ def tai_san():
         i = i +1
         rows.append([Thoi_gian, Tien_gui_NH, Ton_kho, Tong_phai_thu, Tong_TSCD, Dau_tu_TC, Tai_san_khac, Phan_tram_tien_TTS])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
+
 
 # 2. Crawl bảng nguồn vốn
 
@@ -55,7 +56,8 @@ def nguon_von():
         i = i +1
         rows.append([Thoi_gian, No_vay_no_phai_tra, Von_gop, Thang_du_quy, LNST_chua_pp, Phan_tram_no_vay])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
+
 
 # 3. Crawl tiền mặt trên cổ phiếu
 def tien_mat_tren_co_phieu():
@@ -74,7 +76,8 @@ def tien_mat_tren_co_phieu():
         i = i +1
         rows.append([Thoi_gian, Gia_cp_dieu_chinh, Cash_per_share])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
+
 
 # 4. Kết quả kinh doanh quý
 def ket_qua_kinh_doanh_quy():
@@ -95,7 +98,7 @@ def ket_qua_kinh_doanh_quy():
         i = i +1
         rows.append([Thoi_gian, Doanh_thu_4_quy, LNST_4_quy, Bien_LN_gop, Bien_LN_rong])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
 
 # 5. Cơ cấu lợi nhuận
 
@@ -117,7 +120,8 @@ def co_cau_loi_nhuan():
         i = i +1
         rows.append([Thoi_gian, LN_khac, Tong_LNKT_truoc_thue, Lai_lo, Tang_truong_loi_nhuan])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
+
 
 # 6. CPQH + QLDN + DT
 
@@ -141,7 +145,8 @@ def cpqh_qldn_dt():
         write = csv.writer(f)
         write.writerows(rows)
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
+
 
 
 # 7. Đồ thị P/E, EPS pha loãng
@@ -161,7 +166,8 @@ def pe_eps():
         i = i +1
         rows.append([Thoi_gian, Eps_pha_loang, P_e])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file
+
 
 
 # 8. ROA-ROE
@@ -183,4 +189,4 @@ def roa_roe():
         i = i +1
         rows.append([Thoi_gian, Roa_quy, Roe_quy, Roa_4qgn,Roe_4qgn ])
     ghi_file(url_csv_file, rows)
-    return rows
+    return url_csv_file

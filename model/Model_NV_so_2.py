@@ -3,7 +3,7 @@ import requests
 import json
 import csv
 import os
-from Config import config
+from config import config
 from model.ghi_file import ghi_file
 
 config = config()
@@ -39,6 +39,7 @@ def kinh_doanh_theo_quy():
         rows.append(row)
 
     ghi_file(url_csv_file, rows)
+    return url_csv_file
 
 # Crawl bảng kết quả kinh doanh theo năm
 
@@ -69,6 +70,7 @@ def kinh_doanh_theo_nam():
         rows.append(row)
 
     ghi_file(url_csv_file, rows)
+    return url_csv_file
 
 
 # Crawl bảng can doi kinh phi theo quý
@@ -101,6 +103,7 @@ def can_doi_kt_theo_quy():
         rows.append(row)
 
     ghi_file(url_csv_file, rows)
+    return url_csv_file
 
 
 # Crawl bảng can doi kinh phi theo năm
@@ -133,6 +136,7 @@ def can_doi_kt_theo_nam():
         rows.append(row)
 
     ghi_file(url_csv_file, rows)
+    return url_csv_file
 
 
 # Crawl bảng LC tài chính theo quý
@@ -163,6 +167,7 @@ def lc_theo_quy():
         row = row + value
         rows.append(row)
     ghi_file(url_csv_file, rows)
+    return url_csv_file
 
 
 # Crawl bảng LC tài chính theo năm
@@ -194,3 +199,4 @@ def lc_theo_nam():
         row = row + value
         rows.append(row)
     ghi_file(url_csv_file, rows)
+    return url_csv_file
