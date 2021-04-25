@@ -46,3 +46,4 @@ w3lib
 Werkzeug
 zope.interface
 uwsgi
+Flask-WTF
