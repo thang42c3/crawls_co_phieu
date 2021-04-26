@@ -14,5 +14,11 @@ def create_app(config_class = Config):
 
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
+
+    from app.download_file import bp as download_file_bp
+    app.register_blueprint(download_file_bp)
     return app
 
+
+from app.main import forms
+from app import model

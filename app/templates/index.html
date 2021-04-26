@@ -6,9 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>Signin Template · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <title> Lấy dữ liệu cổ phiếu </title>
 
     
 
@@ -17,7 +15,50 @@
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
+
+    
+    <!-- Custom styles for this template -->
     <style>
+      html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -31,11 +72,10 @@
           font-size: 3.5rem;
         }
       }
+
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+
   </head>
   <body class="text-center">
     
@@ -45,14 +85,21 @@
     <h1 class="h2 mb-3 fw-normal">LỰA CHỌN MÃ CỔ PHIẾU</h1>
 
 
-    <select class="form-select" size="5" aria-label="size 5 select example">
-  {% for ma_co_phieu in ma_co_phieus %}
-        <option value={{ma_co_phieus.code}}>{{ma_co_phieus.code}}</option>
-    {% endfor %}
-     </select>
+<!--form class = "ma_co_phieu" method="POST" action="{{ url_for('download_file') }}"--!>
+<form class = "ey" method="POST" action="/download_file1/{{code_co_phieu}}">
+       <select name = "code_co_phieu" class="form-select" size="5" aria-label="size 5 select example" >
+             {% for ma_co_phieu in ma_co_phieus %}
+        <option value={{ma_co_phieu.code + "-" + ma_co_phieu.name}}>{{ma_co_phieu.code + "-" + ma_co_phieu.name}}</option>
+              {% endfor %}
+       </select>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Download dữ liệu</button>
+</form>
+<!--/form--!>
 
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Lấy dữ liệu</button>
+
+
+
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
   </form>
 </main>
