@@ -49,3 +49,4 @@ uwsgi
 Flask-WTF
 schedule
 logging3
+Flask-SQLAIchemy
