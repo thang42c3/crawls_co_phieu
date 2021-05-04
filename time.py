@@ -10,7 +10,6 @@ def job():
         lich_su_gia_co_phieu(code_co_phieu)
 
 schedule.every().day.at("16:00").do(job)
-
-while True:
+if __name__ == "__main__":
     schedule.run_pending()
     time.sleep(1)
