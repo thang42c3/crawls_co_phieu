@@ -49,4 +49,4 @@ uwsgi
 Flask-WTF
 schedule
 logging3
-Flask-SQLAIchemy == 2.5.1
+Flask-SQLAlchemy==2.4.4
