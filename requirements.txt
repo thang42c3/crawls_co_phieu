@@ -48,4 +48,4 @@ zope.interface
 uwsgi
 Flask-WTF
 schedule
-logging
+logging3
