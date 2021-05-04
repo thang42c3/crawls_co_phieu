@@ -80,28 +80,24 @@ body {
   <body class="text-center">
     
 <main class="form-signin">
-  <form>
+
     <img class="mb-4" src="https://www.cophieu68.vn/images/logo_wap.gif" alt="" width="250" height="75">
     <h1 class="h2 mb-3 fw-normal">LỰA CHỌN MÃ CỔ PHIẾU</h1>
-
-
-<!--form class = "ma_co_phieu" method="POST" action="{{ url_for('download_file') }}"--!>
-<form class = "ey" method="POST" action="/download_file1/{{code_co_phieu}}">
-       <select name = "code_co_phieu" class="form-select" size="5" aria-label="size 5 select example" >
+<form class = "ey" method="POST" action= "" id = "SELECT_CODE_CO_PHIEU">
+       <select name = "code_co_phieu" id = "ma_co_phieu1" class="form-select" size="5" aria-label="size 5 select example" >
              {% for ma_co_phieu in ma_co_phieus %}
-        <option value={{ma_co_phieu.code + "-" + ma_co_phieu.name}}>{{ma_co_phieu.code + "-" + ma_co_phieu.name}}</option>
+        <option value={{ma_co_phieu.code}}>{{ma_co_phieu.code + "-" + ma_co_phieu.name}}</option>
               {% endfor %}
        </select>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Download dữ liệu</button>
 </form>
-<!--/form--!>
-
-
-
-
-
+    <script type="text/javascript">
+document.getElementById('ma_co_phieu1').onchange = function(){
+    document.getElementById('SELECT_CODE_CO_PHIEU').action = '/download/'+this.value;
+}
+</script>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-  </form>
+
 </main>
 
 
