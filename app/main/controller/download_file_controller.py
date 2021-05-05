@@ -10,7 +10,7 @@ from app.main.service.make_file_csv_service import kinh_doanh_theo_quy, kinh_doa
 from app.main.service.make_file_csv_service import lich_chia_co_tuc
 from app.main.service.make_file_csv_service import tai_san, nguon_von, tien_mat_tren_co_phieu, ket_qua_kinh_doanh_quy, co_cau_loi_nhuan, cpqh_qldn_dt, pe_eps, roa_roe
 from config.config import configs
-
+const path = require('path');
 config = configs()
 
 @bp.route('/download/<ma_co_phieu1>', methods = ['GET', 'POST'])
