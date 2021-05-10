@@ -1,5 +1,5 @@
 {"file_csv_url":
-  {"lich_su_gia_co_phieu": "..\\file_csv\\lich_su_gia_co_phieu",
+  {"lich_su_gia_co_phieu": "\\file_csv\\lich_su_gia_co_phieu",
     "lich_su_gia_co_phieu_bo_sung": "..\\file_csv\\lich_su_gia_co_phieu_bo_sung",
     "kinh_doanh_theo_quy": "..\\file_csv\\kinh_doanh_theo_quy",
     "kinh_doanh_theo_nam": "..\\file_csv\\kinh_doanh_theo_nam",
