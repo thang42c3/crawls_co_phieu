@@ -11,8 +11,11 @@ import json
 
 
 config = configs()
+basedir = os.getcwd()
+
 
 def save_file(url_csv_file, rows):
+#    url_csv_file = os.path.join(basedir, 'url_csv_file')
     if os.path.exists(r'{0}'.format(url_csv_file)):
         os.remove(r'{0}'.format(url_csv_file))
 
@@ -23,9 +26,12 @@ def save_file(url_csv_file, rows):
 def get_url(loai_so_lieu, ma_co_phieu):
     url = config["url"][loai_so_lieu].format(ma_co_phieu)
     url_csv_file = config["file_csv_url"][loai_so_lieu] + "_{0}".format(ma_co_phieu) + ".csv"
+#    url_csv_file = os.path.join(basedir, "{0}".format(url_csv_file))
+    url_csv_file = basedir + "{0}".format(url_csv_file)
     response = requests.get(url=url, proxies={'http': '', 'https': ''})
     data = json.loads(response.content)
     return url_csv_file, data
+
 
 def lich_su_gia_co_phieu(ma_co_phieu1):
     url_csv_file_bo_sung = config["file_csv_url"]["lich_su_gia_co_phieu_bo_sung"] + "_{0}.csv".format(ma_co_phieu1)
