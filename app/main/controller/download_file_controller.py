@@ -32,7 +32,7 @@ def lich_su_gia_co_phieu_1(ma_co_phieu1):
 @bp.route('/download_file/<ma_co_phieu1>/download_kqkdtq', methods = ['GET', 'POST'])
 def kinh_doanh_theo_quy_route(ma_co_phieu1):
     url_file = kinh_doanh_theo_quy(ma_co_phieu1)
-    path = r"..\\{0}".format(url_file)
+    path = r"{0}".format(url_file)
     return send_file(path, as_attachment=True, cache_timeout=0)
 
 @bp.route('/download_file/<ma_co_phieu1>//download_kqkdtn', methods = ['GET', 'POST'])
